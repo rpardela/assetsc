@@ -1,4 +1,6 @@
-I have prepared software that runs on Polygon Mumbai and Node.js platform. This is not NFT!
+An example of a smart contract that allows the sale of shares for defined assets.
+
+Software runs on Polygon Mumbai and Node.js platform. This is not NFT!
 
 # I. REQUIREMENTS
 
