@@ -1,0 +1,17 @@
+{
+    "config": {
+        "serverIP": "localhost",
+        "serverPort": 4333,
+        "CSPNonceLength": 128,
+        "chain": {
+            "bcAddressTest": "https://matic-mumbai.chainstacklabs.com",
+            "chainIDtest": 80001,
+            "gasLimitRateTest": 10.0,
+            "gasPriceRateTest": 4
+        },
+        "token": {
+            "contractAddressTest": "0x441FB36008dc81491F71fEF80cbBCE5A39BE95DF",
+            "pathToABITest": "./assetsc.abi"
+        }
+    }
+}
