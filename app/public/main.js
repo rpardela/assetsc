@@ -24,6 +24,10 @@ const startMain = async () => {
             document.getElementById('assetValueBuy').value
         );
     };
+
+    document.getElementById('refreshButton').disabled = true;
+    document.getElementById('addAssetButton').disabled = true;
+    document.getElementById('buyAssetButton').disabled = true;
 }
 
 const connectToWallet = async () => {
@@ -37,12 +41,19 @@ const connectToWallet = async () => {
     // send ether and pay to change state within the blockchain.
     // For this, you need the account signer...
     signer = await provider.getSigner();
+    console.log(signer);
     walletAddress = await signer.getAddress();
 
     document.getElementById('walletAddress').innerHTML = walletAddress;
 
     // The Contract object
     assetContract = new ethers.Contract('0x441FB36008dc81491F71fEF80cbBCE5A39BE95DF', getABI(), provider).connect(signer);
+
+    if (assetContract) {
+        document.getElementById('refreshButton').disabled = false;
+        document.getElementById('addAssetButton').disabled = false;
+        document.getElementById('buyAssetButton').disabled = false;
+    }
 
     //show table with assets
     await refreshTable();

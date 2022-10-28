@@ -28,14 +28,14 @@
                     ASSET SMARTCONTRACT TEST
             </div>
             <div class="col-md-4">
-                <button id="connectButton" style="text-align: center;line-height: 2.5em;font-size: 25px;">Connect
+                <button id="connectButton" style="text-align: center;line-height: 2.5em;font-size: 25px; margin-top: 10px; color: green;">Connect
                     wallet</button>
                 <span id="walletAddress" style="font-size: small"></span>
             </div>
         </div>
     </div>
 
-    <div class="container" id="main_screen" style="margin-top: 5px; max-width: 90%">
+    <div class="container" id="main_screen" style="margin-top: 5px; max-width: 90%" disabled>
         <div class="row">
             <div class="col-lg-12">
                 <H2>Add asset</H2>
@@ -157,7 +157,7 @@
 
     <script nonce="[$NONCE$]" type="text/javascript">
         $(document).ready(async function () {
-            await Window.main.startMain();
+            Window.main.startMain();
         });
     </script>
 </body>
