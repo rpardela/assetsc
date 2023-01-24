@@ -2,7 +2,14 @@ An example of a smart contract that allows the sale of shares for defined assets
 
 Software runs on Polygon Mumbai and Node.js platform. This is not NFT!
 
-# I. REQUIREMENTS
+# <br>MOTIVATION
+
+Sometimes someone asks me what drove me to prepare such a demo, what was my motivation?
+
+Of course, I know that the problem of tokenization of assets can and even should be implemented in other ways, for example, using ERC standards, but this demo was created for the needs of a specific client who asked me to prepare a concept that does not use any available standards.
+And so this project was created :)
+
+# <br>I. REQUIREMENTS
 
 The contract must:
 
