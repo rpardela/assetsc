@@ -89,13 +89,13 @@ contract AssetTest {
             stakeholder: msg.sender
         });
 
-        sharesPerAssets[_assetID].push(newAssetShare);
-
         (bool success, ) = payable(assets[_assetID].owner).call{
             value: msg.value
         }("");
 
         require(success, "Failed to send Ether");
+
+        sharesPerAssets[_assetID].push(newAssetShare);
 
         return "TRN_ACCEPTED";
     }
