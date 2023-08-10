@@ -74,12 +74,10 @@ contract AssetTest {
      * Req: the owner of the object receives funds
      * Req: buyer gets stakes
      */
-    function buyShares(uint256 _assetID, uint256 _shares)
-        public
-        payable
-        assetExists(_assetID)
-        returns (bytes32)
-    {
+    function buyShares(
+        uint256 _assetID,
+        uint256 _shares
+    ) public payable assetExists(_assetID) returns (bytes32) {
         require(msg.value > 0, "Value is 0");
         require(_shares > 0, "Shares to buy is 0");
         uint256 calcValue = assets[_assetID].fixPricePerShare * _shares;
@@ -90,12 +88,13 @@ contract AssetTest {
             shares: _shares,
             stakeholder: msg.sender
         });
-        sharesPerAssets[_assetID].push(newAssetShare);
 
         (bool success, ) = payable(assets[_assetID].owner).call{
             value: msg.value
         }("");
         require(success, "Failed to send Ether");
+
+        sharesPerAssets[_assetID].push(newAssetShare);
 
         return "TRN_ACCEPTED";
     }
@@ -103,12 +102,9 @@ contract AssetTest {
     /**
      * Get free (uncovered) shares for asset
      */
-    function calcFreeShares(uint256 _assetID)
-        public
-        view
-        assetExists(_assetID)
-        returns (uint256)
-    {
+    function calcFreeShares(
+        uint256 _assetID
+    ) public view assetExists(_assetID) returns (uint256) {
         uint256 allShares = 0;
 
         for (uint256 i = 0; i < sharesPerAssets[_assetID].length; i++) {
@@ -139,24 +135,18 @@ contract AssetTest {
     /**
      * Get asset's record
      */
-    function getAsset(uint256 _assetID)
-        public
-        view
-        assetExists(_assetID)
-        returns (Asset memory)
-    {
+    function getAsset(
+        uint256 _assetID
+    ) public view assetExists(_assetID) returns (Asset memory) {
         return assets[_assetID];
     }
 
     /**
      * Get asset's share
      */
-    function getSharesPerAssets(uint256 _assetID)
-        public
-        view
-        assetExists(_assetID)
-        returns (AssetShare[] memory)
-    {
+    function getSharesPerAssets(
+        uint256 _assetID
+    ) public view assetExists(_assetID) returns (AssetShare[] memory) {
         return sharesPerAssets[_assetID];
     }
 
